@@ -4,5 +4,6 @@ I am Sham Learning Following Tech
 - CSS 
 - JS
 - MySQL
+- JDBC
 
 
