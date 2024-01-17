@@ -1,4 +1,4 @@
-# My Daily HTML Codes
+# My Daily  Codes
 - HTML
 - CSS 
 - JS
