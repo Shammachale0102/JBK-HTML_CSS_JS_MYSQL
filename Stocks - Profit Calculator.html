@@ -1,0 +1,187 @@
+<html>
+<div class="container" data-theme='light'>
+    <div align='center'>
+        <div style='display:flex'>
+            <h2 style='flex:2' class='profit'>Profit Calculator</h2>
+        </div>
+        <hr><br>
+        <form id='form1'>
+            <div class="field">
+                <input type="number" autocomplete='off' step="0.00001" required id='amount'>
+                <label class='pl' for="amount">Amount</label>
+            </div>
+            <div class="field">
+                <input type="number" autocomplete='off' step="0.000001" required id='cp'>
+                <label class='pl' for="cp">Cost Price</label>
+            </div>
+            <div class="field">
+                <input type="number" autocomplete='off' step="0.0000001" required id='sp'>
+                <label class='pl' for="sp">Sell Price</label>
+            </div>
+            <div class="field">
+                <button type='submit'>Calculate</button>
+            </div>
+        </form>
+        <div id="result" style="margin-bottom:80px"></div><br>
+    </div>
+</div>
+
+
+</html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+    :root {
+        --eerie-black: #fff;
+        --white: hsla(0, 0%, 100%, 1);
+        --black: #000;
+        --cadet-blue: rgb(0, 143, 255);
+        --light-steel-blue: hsla(214, 45%, 82%, 1);
+    }
+
+    .container[data-theme='light'] {
+        --black: #000;
+        --white: #fff;
+        --eerie-black: hsla(0, 0%, 13%, 1);
+    }
+
+    .container[data-theme='dark'] {
+        --black: #fff;
+        --white: #000;
+        --eerie-black: hsla(0, 0%, 13%, 1);
+    }
+
+    body {
+        margin: 0;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: Roboto;
+        color: car(--white);
+        background: var(--black) !important;
+    }
+
+    .container {
+        padding: 10px 20px;
+        background: var(--black);
+        width: 70%;
+        height: 80vh;
+    }
+
+    h2.profit {
+        font-size: 30px;
+        color: var(--white);
+    }
+
+    .field {
+        margin-bottom: 25px;
+        width: 300px;
+        position: relative;
+    }
+
+    .field input {
+        width: 100%;
+        padding: 10px 20px;
+        font-size: 16px;
+        outline: none;
+        transition: .2s ease;
+        border: none;
+        color: var(--white) !important;
+        background: transparent;
+        border-bottom: 1px solid var(--eerie-black);
+    }
+
+    .field label.pl {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: .2s ease;
+        font-size: 16px;
+        color: var(--white) !important;
+        pointer-events: none;
+    }
+
+    .field input:focus {
+        border-color: var(--cadet-blue);
+        box-shadow: 0 2px 0 var(--cadet-blue);
+    }
+
+    .field input:focus~label.pl {
+        transform: translateY(-35px);
+        font-size: 14px;
+        color: var(--cadet-blue);
+    }
+
+    .field input:valid~label.pl {
+        transform: translateY(-35px);
+        font-size: 14px;
+    }
+
+    button {
+        background: var(--cadet-blue);
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width:700px) {
+        body {
+            background: #fff;
+        }
+
+        .field {
+            width: 200px;
+            margin-left: -36px;
+        }
+    }
+</style>
+<script>
+    let $ = (el) => document.querySelector(el);
+    let form = $('#form1');
+    let amount = $('#amount');
+    let buyvalue = $('#cp');
+    let sellvalue = $('#sp');
+    let btn = $('#changetheme');
+
+    //functions
+
+    function calculate({ amount, buy, sell }) {
+        let data = (amount / buy * sell);
+        let profit = data - amount;
+        let percentage = (profit / amount * 100);
+        return { data, profit, amount, percentage };
+    }
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        let result = calculate({
+            amount: amount.value,
+            buy: buyvalue.value,
+            sell: sellvalue.value
+        });
+        let span = document.createElement('span');
+        span.classList.add('span');
+        const str_a = result.data.toString();
+        const str_b = result.percentage.toString();
+        const num = Number(str_a.slice(0, 6));
+        const numb = Number(str_b.slice(0, 6));
+        let case1 = `
+    <h1 style='color:#fff'>${num}</h1><p style='color:rgb(100,200,150)'>Profit: ${result.profit}<br>Profit percentage: ${numb}%</p>
+  `;
+        let case2 = `
+    <h1 style='color:#fff'>${num}</h1><p style='color:rgb(200,100,100)'>Loss: ${result.profit}<br>Loss percentage: ${numb}%</p>
+  `;
+        if (result.amount > result.data) {
+            span.innerHTML = '';
+            span.innerHTML = case2;
+        } else {
+            span.innerHTML = '';
+            span.innerHTML = case1;
+        }
+        $('#result').innerHTML = span.innerHTML;
+    });
+</script>
