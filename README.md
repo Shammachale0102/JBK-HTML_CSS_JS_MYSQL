@@ -27,5 +27,11 @@ I am Sham Learning Following Tech
 [Day 10 - Day 10 - Use of Variables, Functions & Array in JS](Day10.html)
 
 
+<hr>
+
+[Project-Profit Calculator](ProfitCalculator.html)
+
+
+
 
 
