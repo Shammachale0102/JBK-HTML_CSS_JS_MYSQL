@@ -1,0 +1,240 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stocks - Profit Calculator</title>
+	<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+    
+</head>
+<div id="particles-js"></div>
+
+<div class="container" id="app">
+	<h1 class="text-center my-3 mt-5">
+		Stocks - Profit Calculator
+	</h1>
+	
+	<div class="row stock-fields">
+		<div class="col-md-6">
+			<b-input-group prepend="Invested amount">
+				<b-form-input
+					v-model.number="investedAmount"
+					type="number" min="0"
+				/>
+			</b-input-group>
+		</div>
+		
+		<div class="col-md-6">
+			<b-input-group prepend="Price/Share">
+				<b-form-input
+					v-model.number="pricePerShare"
+					type="number" min="0"
+				/>
+			</b-input-group>
+		</div>
+		
+		<div class="col-md-6">
+			<b-input-group prepend="Number of shares">
+				<b-form-input v-model="numberOfShares" disabled />
+			</b-input-group>
+		</div>
+		
+		<div class="col-md-6">
+			<b-input-group prepend="New Price/Share">
+				<b-form-input
+					v-model.number="newPricePerShare"
+					type="number" min="0"
+				/>
+			</b-input-group>
+		</div>
+		
+		<div class="col-md-6">
+			<b-input-group prepend="Profit">
+				<b-form-input 
+					:class="profit >= 0 ? 'text-success' : 'text-danger'"
+					v-model.number="profit" disabled
+				/>
+			</b-input-group>
+		</div>
+	</div>
+</div>
+<style>
+body {
+	color: #fff;
+	font-family: 'Trebuchet MS'
+}
+
+h1 {
+	letter-spacing: -1px;
+	position: relative;
+	color: #985809;
+}
+
+#particles-js {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	top: 0;
+}
+.stock-fields {
+	& > div {
+		margin-bottom: 0.5rem
+	}
+	.input-group-text {
+	    border-bottom-right-radius: 0;
+	    border-top-right-radius: 0;
+		min-width: 10rem
+	}
+}
+</style>
+
+<script>
+	
+let vm = new Vue({
+	el: "#app",
+	data: {
+		investedAmount: 0,
+		pricePerShare: 0,
+		newPricePerShare: 0,
+	},
+	computed: {
+		numberOfShares() {
+			if (!this.investedAmount || !this.pricePerShare) return 0
+			return (this.investedAmount / this.pricePerShare)
+		},
+		profit() {
+			return (this.newPricePerShare - this.pricePerShare) * this.numberOfShares
+		}
+	}
+});
+
+// ParticlesJS Config.
+particlesJS("particles-js", {
+	particles: {
+		number: {
+			value: 130,
+			density: {
+				enable: true,
+				value_area: 500
+			}
+		},
+
+		color: {
+			value: "#ffffff"
+		},
+
+		shape: {
+			type: "circle",
+			stroke: {
+				width: 0,
+				color: "#000000"
+			},
+
+			polygon: {
+				nb_sides: 5
+			}
+		},
+
+		opacity: {
+			value: 0.5,
+			random: false,
+			anim: {
+				enable: false,
+				speed: 1,
+				opacity_min: 0.1,
+				sync: false
+			}
+		},
+
+		size: {
+			value: 3,
+			random: true,
+			anim: {
+				enable: false,
+				speed: 40,
+				size_min: 0.1,
+				sync: false
+			}
+		},
+
+		line_linked: {
+			enable: true,
+			distance: 150,
+			color: "#ffffff",
+			opacity: 0.4,
+			width: 1
+		},
+
+		move: {
+			enable: true,
+			speed: 6,
+			direction: "none",
+			random: false,
+			straight: false,
+			out_mode: "out",
+			bounce: false,
+			attract: {
+				enable: false,
+				rotateX: 600,
+				rotateY: 1200
+			}
+		}
+	},
+
+	interactivity: {
+		detect_on: "canvas",
+		events: {
+			onhover: {
+				enable: true,
+				mode: "grab"
+			},
+
+			onclick: {
+				enable: true,
+				mode: "push"
+			},
+
+			resize: true
+		},
+
+		modes: {
+			grab: {
+				distance: 140,
+				line_linked: {
+					opacity: 1
+				}
+			},
+
+			bubble: {
+				distance: 400,
+				size: 40,
+				duration: 2,
+				opacity: 8,
+				speed: 3
+			},
+
+			repulse: {
+				distance: 200,
+				duration: 0.4
+			},
+
+			push: {
+				particles_nb: 4
+			},
+
+			remove: {
+				particles_nb: 2
+			}
+		}
+	},
+
+	retina_detect: true
+});
+
+</script>
