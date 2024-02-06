@@ -24,7 +24,9 @@ I am Sham Learning Following Tech
 
 [Day 09 - Functions In JavaScript](Day09.html)
 
-[Day 10 - Day 10 - Use of Variables, Functions & Array in JS](Day10.html)
+[Day 10 - Use of Variables, Functions & Array in JS](Day10.html)
+
+[Day 11 - Loops and Conditional Statements](Day11.html)
 
 
 <hr>
