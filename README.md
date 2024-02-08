@@ -30,6 +30,8 @@ I am Sham Learning Following Tech
 
 [Day 12 - Introduction Tom DOM](Day12.html)
 
+[Day 13 - Introduction Tom DOM](Day13.html)
+
 
 <hr>
 
