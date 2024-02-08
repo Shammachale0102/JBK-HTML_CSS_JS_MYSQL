@@ -28,9 +28,9 @@ I am Sham Learning Following Tech
 
 [Day 11 - Loops and Conditional Statements](Day11.html)
 
-[Day 12 - Introduction Tom DOM](Day12.html)
+[Day 12 - Introduction To DOM](Day12.html)
 
-[Day 13 - Introduction Tom DOM](Day13.html)
+[Day 13 - Introduction To DOM](Day13.html)
 
 
 <hr>
