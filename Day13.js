@@ -1,36 +1,20 @@
 
-var fruits = ["Mango", "Banana", "Orange", "Strawberry"]
-for(frt of fruits){
-    //var h2 = document.getElementById("msg");
-    //h2.innerHTML = "Hi i am Sham"
-
-    document.getElementById("msg").innerHTML += frt + "<br>"
-}
-
-
-
-
-// function change(){
-//     var h1 = document.querySelector(".head")
-    
-//     h1.innerHTML = "Learning DOM... "
-//     h1.style.backgroundColor = "yellow"
-// }
-
-
+let counter=0;
 function change(){
-    var h1 = document.querySelector(".head")
-if (h1.innerHTML == "Day 13 - Introduction to DOM") {
-    h1.innerHTML = "Learning DOM... "
-    h1.style.backgroundColor = "red"
-    
- } else if(h1.innerHTML == "Learning DOM...") {
-    h1.innerHTML ="Dom Manipulation"
-    h1.style.backgroundColor ="grey"
- } 
-else {
-    h1.innerHTML = "Day 13 - Introduction to DOM"
-    h1.style.backgroundColor = "yellow"
-}
-   
+    counter++;
+    var h1=document.getElementById("head");
+    if (h1.innerHTML=="Day 13 - Intro to DOM") {
+        h1.innerHTML="Changed Day 13"
+        h1.style.backgroundColor="red"
+        
+    } else if(h1.innerHTML=="Changed Day 13") {
+        h1.innerHTML="It's Third Time Change";
+        h1.style.backgroundColor="grey";
+        
+    }else{
+        h1.innerHTML="Day 13 - Intro to DOM";
+        h1.style.backgroundColor="yellow"
+        
+    }
+    document.getElementById("count").innerHTML="Button Clicked "+counter +" Times";
 }
