@@ -1,15 +1,12 @@
-h1 {
-    background-color: rgb(104, 184, 157);
+h1{
+    background-color: aqua;
 }
 
-input {
-    padding: 7px;
-    border-radius: 5px;
-    background-color: rgb(208, 238, 238);
+button{
+    color: rgb(102, 102, 170);
 }
-
-button {
-    width: 100px;
-    height: 30px;
-    background-color: rgb(98, 98, 145);
+input{
+    margin: 0;
+    padding: 8px;
+    color: brown;
 }
