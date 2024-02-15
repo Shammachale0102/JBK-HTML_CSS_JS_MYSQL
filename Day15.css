@@ -1,0 +1,15 @@
+h1 {
+    background-color: rgb(104, 184, 157);
+}
+
+input {
+    padding: 7px;
+    border-radius: 5px;
+    background-color: rgb(208, 238, 238);
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    background-color: rgb(98, 98, 145);
+}
