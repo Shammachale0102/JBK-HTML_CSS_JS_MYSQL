@@ -36,6 +36,8 @@ I am Sham Learning Following Tech
 
 [Day 15 - Email PassWord Mobile Field Validation](Day15.html)
 
+[Day 16 - Changing image through JS](Day16.html)
+
 <hr>
 
 [Project-Profit Calculator](ProfitCalculator.html)
