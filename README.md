@@ -38,6 +38,8 @@ I am Sham Learning Following Tech
 
 [Day 16 - Changing image through JS](Day16.html)
 
+[Day 17 - MySQL CRUD](Day17.html)
+
 <hr>
 
 [Project-Profit Calculator](ProfitCalculator.html)
