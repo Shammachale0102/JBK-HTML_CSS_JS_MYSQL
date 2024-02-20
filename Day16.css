@@ -1,5 +1,7 @@
-h1{
+h1 {
     background-color: rgb(69, 211, 211);
 }
 
-
+img {
+    width: 500px;
+}
