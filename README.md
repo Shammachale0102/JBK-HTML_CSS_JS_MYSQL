@@ -46,3 +46,4 @@ I am Sham Learning Following Tech
 
 [Project-Stocks-profitCalculator](Stocks-ProfitCalculator.html)
 
+[Project-PersonalDetails](PersonalDetails.html)
